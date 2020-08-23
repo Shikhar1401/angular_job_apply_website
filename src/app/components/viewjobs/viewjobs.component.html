@@ -1,0 +1,37 @@
+<app-header></app-header>   
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3 nopadding">
+            <app-sidemenu></app-sidemenu>
+        </div>
+        <div class="col-9">
+            <div class="row mt-2" [ngClass]="{'color': userType=='r'}" >
+                <div class="col-sm-6 mt-1" *ngFor="let job of jobData">
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">{{job.jobName}}</h5>
+                      <p class="card-text">{{job.description}}</p>
+                      <a class="btn btn-success fontcol" (click)="getJobId(job.jobId)" *ngIf="userType=='c'">Apply</a>
+                      <a class="btn btn-success fontcol" (click)="getJobId(job.jobId)" *ngIf="userType=='r'">Check Applied</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <section class="mt-3" >
+                <div class="row">
+                  <h3 class="pad pl-3" *ngIf="userData.length > 0">Applied By</h3>
+                  <ul class="list-group width px-3">
+                      <li *ngFor="let user of userData" class="list-group-item">
+                          {{user.email}}
+                      </li>
+                  </ul>
+              </div>
+              </section>
+              
+        </div>
+    </div>
+</div>
+
+
+
+

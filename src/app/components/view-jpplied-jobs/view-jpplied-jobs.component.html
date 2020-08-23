@@ -1,0 +1,29 @@
+<app-header></app-header>   
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3 nopadding">
+            <app-sidemenu></app-sidemenu>
+        </div>
+        <div class="col-9">
+            <ul class="list-group mt-3">
+                <li class="list-group-item mt-1" *ngFor="let applied of appliedJobs">
+                    <div class="row d-flex flex-row justify-content-around">
+                        <div class="col-3 d-flex flex-column text-center">
+                            <label class="fontweight ">Title</label>
+                            {{applied.jobName}}
+                        </div>
+                        <div class="col-3 d-flex flex-column text-center">
+                            <label class="fontweight textover">Description</label>
+                            {{applied.description}}
+                        </div>
+                        <div class="col-3 d-flex flex-column text-center">
+                            <label class="fontweight ">Job Id</label>
+                            {{applied.jobId}}
+                        </div>
+                    </div>
+                </li>
+
+              </ul>
+        </div>
+    </div>
+</div>

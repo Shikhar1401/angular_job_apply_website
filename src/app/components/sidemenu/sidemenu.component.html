@@ -1,0 +1,49 @@
+<div class="wrapper">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <ul class="list-unstyled components">
+            <li *ngIf="userType=='r'">
+                <a data-toggle="modal" data-target="#exampleModal">Add Job</a>
+            </li>
+            <li>
+                <a routerLink="/viewjobs" routerLinkActive="active" >View Jobs</a>
+            </li>
+            <li *ngIf="userType=='c'">
+              <a routerLink="/appliedjobs" routerLinkActive="active" >View Applied Jobs</a>
+          </li>
+
+        </ul>
+    </nav>
+
+</div>
+
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div>
+                  <div class="form-group" >
+                    <label for="title">Job Title</label>
+                    <input type="text" class="form-control" id="title" placeholder="Job Name" name="jobName" [(ngModel)]="jobName">
+                  </div>
+                  <div class="form-group" >
+                    <label for="description">Job Title</label>
+                    <textarea class="form-control" id="description" rows="3" placeholder="Job Description" 
+                        name="desc" [(ngModel)]="desc"></textarea>
+                  </div>
+                </div> 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="submitJob()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

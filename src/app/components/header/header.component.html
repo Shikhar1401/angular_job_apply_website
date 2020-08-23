@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Naukri.com</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown" *ngIf="!check">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Login/Signup
+          </a>
+          <div class="dropdown-menu width" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" routerLink="/login" routerLinkActive="active">Login</a>
+            <a class="dropdown-item" routerLink="/signup" routerLinkActive="active">Signup</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown" *ngIf="check && userType !== 'undefined'">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Profile
+          </a>
+          <div class="dropdown-menu width1" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" (click)="logout()">Logout</a>
+            <p class="dropdown-item" *ngIf="userType == 'r'">Logged As Recuriter</p>
+            <p class="dropdown-item" *ngIf="userType == 'c'">Logged As Candidate</p>
+          </div>
+        </li>
+        
+      </ul>
+      
+    </div>
+  </nav>
